@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Maze::VERSION
   gem.authors       = ["Pete Johns"]
   gem.email         = ["paj-github@johnsy.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{A gem to solve a 2D maze.}
+  gem.summary       = %q{Written as an exercise}
+  gem.homepage      = "https://github.com/johnsyweb"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

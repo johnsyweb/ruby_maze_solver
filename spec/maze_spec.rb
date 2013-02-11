@@ -25,5 +25,15 @@ describe Maze do
         @maze.visitable?(0, 1).should be_true
     end
 
+    it 'should not be possible to visit a wall' do
+        given_a_simple_8_x_3_maze
+        @maze.visitable?(0, 0).should be_false
+    end
+
+    it 'should not be possible to visit outside the maze' do
+        given_a_simple_8_x_3_maze
+        @maze.visitable?(8, 3).should be_false
+    end
+
 end
 

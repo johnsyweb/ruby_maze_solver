@@ -18,6 +18,8 @@ module Maze
 
       def visitable?(x, y)
           row, column = y, x
+          return false unless (0...height).include? row
+          return false unless (0...width).include? column
           @grid[row][column].chr == ' '
       end
 

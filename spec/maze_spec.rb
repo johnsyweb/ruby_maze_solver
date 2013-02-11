@@ -53,5 +53,34 @@ describe Maze do
         @maze.solve(0, 1, 7, 1).should be_true
     end
 
+    it 'should solve a simple maze backwards' do
+        given_a_simple_8_x_3_maze
+        @maze.solve(7, 1, 0, 1).should be_true
+    end
+
+    it 'should solve a bigger maze' do
+        @maze = Maze::Maze.new('********\n' +
+                               '  **   *\n' +
+                               '* ** * *\n' +
+                               '* *  * *\n' +
+                               '* ** * *\n' +
+                               '* **** *\n' +
+                               '*      *\n' +
+                               '********\n')
+        @maze.solve(0, 1, 3, 3).should be_true
+    end
+
+    it 'should fail an impossible maze' do
+        @maze = Maze::Maze.new('********\n' +
+                               '  **   *\n' +
+                               '* **** *\n' +
+                               '* *  * *\n' +
+                               '* ** * *\n' +
+                               '* **** *\n' +
+                               '*      *\n' +
+                               '********\n')
+        @maze.solve(0, 1, 3, 3).should be_false
+    end
+
 end
 

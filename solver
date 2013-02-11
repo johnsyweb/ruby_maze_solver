@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+require 'lib/maze'
+
+def main(filename, start_x, start_y, end_x, end_y)
+    maze = Maze::Maze::new :from_file => filename
+    puts "About to solve your #{maze.width}x#{maze.height} maze from (#{start_x}, #{start_y}) to (#{end_x},#{end_y})."
+    puts "GO!"
+    if maze.solve start_x.to_i, start_y.to_i, end_x.to_i, end_y.to_i
+        puts "Solved!"
+    else
+        puts "You beat me!"
+    end
+    puts maze
+end
+
+if __FILE__ == $0
+    if ARGV.length == 5
+        filename, start_x, start_y, end_x, end_y = ARGV
+        main filename, start_x, start_y, end_x, end_y
+    else
+        puts "Usage: " + $0 + " filename start_x start_y end_x end_y\n"
+        puts "Example: ./solver demo.maze 18 0 38 0\n"
+    end
+end
+

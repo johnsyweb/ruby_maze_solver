@@ -91,7 +91,7 @@ describe Maze do
         given_a_simple_8_x_3_maze
         @maze.solve 0, 1, 7, 1
         @maze.to_s.should eq "********\n" +
-            "++++++++\n" +
+            "........\n" +
             "********"
     end
 

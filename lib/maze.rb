@@ -38,12 +38,12 @@ module Maze
 
           visit start_x, start_y
 
-          return true if start_x == end_x and start_y == end_y
+          return true if start_x == end_x && start_y == end_y
 
-          unless solve start_x + 1, start_y, end_x, end_y  \
-              or solve start_x, start_y + 1, end_x, end_y  \
-              or solve start_x - 1, start_y, end_x, end_y  \
-              or solve start_x, start_y - 1, end_x, end_y 
+          unless solve(start_x + 1, start_y, end_x, end_y) ||
+              solve(start_x, start_y + 1, end_x, end_y) ||
+              solve(start_x - 1, start_y, end_x, end_y) ||
+              solve(start_x, start_y - 1, end_x, end_y)
 
               unvisit start_x, start_y
               return false

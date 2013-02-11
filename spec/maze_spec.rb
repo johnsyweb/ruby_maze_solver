@@ -37,14 +37,14 @@ describe Maze do
 
     it 'should not be possible to visit a visited space' do
         given_a_simple_8_x_3_maze
-        @maze.visit 0, 1 
+        @maze.visit 0, 1
         @maze.visitable?(0, 1).should be_false
     end
 
     it 'should be possible to visit an unvisited space' do
         given_a_simple_8_x_3_maze
-        @maze.visit 0, 1 
-        @maze.unvisit 0, 1 
+        @maze.visit 0, 1
+        @maze.unvisit 0, 1
         @maze.visitable?(0, 1).should be_true
     end
 

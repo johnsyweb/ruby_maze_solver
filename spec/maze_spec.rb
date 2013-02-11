@@ -59,7 +59,7 @@ describe Maze do
     end
 
     it 'should solve a bigger maze' do
-        @maze = Maze::Maze.new('********\n' +
+        maze = Maze::Maze.new('********\n' +
                                '  **   *\n' +
                                '* ** * *\n' +
                                '* *  * *\n' +
@@ -67,11 +67,11 @@ describe Maze do
                                '* **** *\n' +
                                '*      *\n' +
                                '********\n')
-        @maze.solve(0, 1, 3, 3).should be_true
+        maze.solve(0, 1, 3, 3).should be_true
     end
 
     it 'should fail an impossible maze' do
-        @maze = Maze::Maze.new('********\n' +
+        maze = Maze::Maze.new('********\n' +
                                '  **   *\n' +
                                '* **** *\n' +
                                '* *  * *\n' +
@@ -79,7 +79,22 @@ describe Maze do
                                '* **** *\n' +
                                '*      *\n' +
                                '********\n')
-        @maze.solve(0, 1, 3, 3).should be_false
+        maze.solve(0, 1, 3, 3).should be_false
+    end
+
+    it "should be printable" do
+        given_a_simple_8_x_3_maze
+        @maze.to_s.should eq '********\n' +
+            '        \n' +
+            '********'
+    end
+
+    it "should be printable when solved" do
+        given_a_simple_8_x_3_maze
+        @maze.solve 0, 1, 7, 1
+        @maze.to_s.should eq '********\n' +
+            '++++++++\n' +
+            '********'
     end
 
 end

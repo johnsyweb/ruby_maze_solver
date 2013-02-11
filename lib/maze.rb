@@ -25,7 +25,7 @@ module Maze
 
       def visit(x, y)
           row, column = y, x
-          @grid[row][column] = '*'
+          @grid[row][column] = '+'
       end
 
       def unvisit(x, y)
@@ -50,6 +50,10 @@ module Maze
           end
 
           return true
+      end
+
+      def to_s
+          @grid.join('\n')
       end
 
   end

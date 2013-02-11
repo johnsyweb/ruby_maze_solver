@@ -48,5 +48,10 @@ describe Maze do
         @maze.visitable?(0, 1).should be_true
     end
 
+    it 'should solve a simple maze' do
+        given_a_simple_8_x_3_maze
+        @maze.solve(0, 1, 7, 1).should be_true
+    end
+
 end
 

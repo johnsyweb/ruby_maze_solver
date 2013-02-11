@@ -4,8 +4,12 @@ module Maze
 
   class Maze
 
-      def initialize(a_grid)
-          @grid = a_grid.split('\n')
+      def initialize(args={})
+          if args[:from_grid]
+              @grid = args[:from_grid].split("\n")
+          elsif args[:from_file]
+              @grid = from_file(args[:from_file])
+          end
       end
 
       def height
@@ -20,17 +24,17 @@ module Maze
           row, column = y, x
           return false unless (0...height).include? row
           return false unless (0...width).include? column
-          @grid[row][column].chr == ' '
+          @grid[row][column].chr == " "
       end
 
       def visit(x, y)
           row, column = y, x
-          @grid[row][column] = '+'
+          @grid[row][column] = "+"
       end
 
       def unvisit(x, y)
           row, column = y, x
-          @grid[row][column] = ' '
+          @grid[row][column] = " "
       end
 
       def solve(start_x, start_y, end_x, end_y)
@@ -53,7 +57,12 @@ module Maze
       end
 
       def to_s
-          @grid.join('\n')
+          @grid.join("\n")
+      end
+
+      def from_file(filename)
+          @grid = File.open(filename, "r").readlines
+          @grid.each { | row | row.strip! }
       end
 
   end

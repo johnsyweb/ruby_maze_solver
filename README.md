@@ -1,6 +1,26 @@
 # Maze
 
-TODO: Write a gem description
+Written as an exercise in applying Ruby, this project solves mazes:
+
+    ./solver demo.maze 18 0 38 0
+    About to solve your 40x14 maze from (18, 0) to (38,0).
+    GO!
+    Solved!
+    ******************.*******************.*
+    *      .......****.**      .......****.*
+    * *****.*****...**.** *****.*****...**.*
+    * *****.*******.**.** *****.*******.**.*
+    * *    ......**.**.** *    ......**.**.*
+    * **********.**....** **********.**....*
+    ************.*******************.*******
+    ************.***** *************.***** *
+    *           ..****............... **** *
+    * ***** *****...**.** ***** *****   ** *
+    * ***** *******.**.** ***** ******* ** *
+    * *          **.**.** *          ** ** *
+    * ********** **....** ********** **    *
+    ****************************************
+
 
 ## Installation
 
@@ -18,7 +38,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    ./solver filename start_x start_y end_x end_y
 
 ## Contributing
 
@@ -27,3 +47,13 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## Thanks
+
+If you find this stuff useful, please follow this repository on
+[GitHub](https://github.com/johnsyweb/ruby_maze_solver). If you have something to say,
+you can contact [johnsyweb](http://johnsy.com/about/) on
+[Twitter](http://twitter.com/johnsyweb/) and
+[GitHub](https://github.com/johnsyweb/).
+

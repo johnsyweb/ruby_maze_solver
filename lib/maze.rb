@@ -23,6 +23,16 @@ module Maze
           @grid[row][column].chr == ' '
       end
 
+      def visit(x, y)
+          row, column = y, x
+          @grid[row][column] = '*'
+      end
+
+      def unvisit(x, y)
+          row, column = y, x
+          @grid[row][column] = ' '
+      end
+
   end
 
 end

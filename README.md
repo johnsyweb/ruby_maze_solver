@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/johnsyweb/ruby_maze_solver.png)](https://travis-ci.org/johnsyweb/ruby_maze_solver)
+
 # Maze Solver
 
 Written as an exercise in applying Ruby, this project solves mazes:

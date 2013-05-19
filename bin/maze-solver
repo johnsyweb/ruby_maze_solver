@@ -3,10 +3,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'maze'
+require 'maze_solver'
 
 def main(filename, start_x, start_y, end_x, end_y)
-  maze = Maze::Maze.new(from_file: filename)
+  maze = MazeSolver::MazeSolver.new(from_file: filename)
   puts "About to solve your #{maze.width}x#{maze.height} maze from " +
     "(#{start_x}, #{start_y}) to (#{end_x},#{end_y})."
   puts 'GO!'
@@ -20,7 +20,7 @@ end
 
 if ARGV.length == 5
   filename, start_x, start_y, end_x, end_y = ARGV
-  main filename, start_x, start_y, end_x, end_y
+  main(filename, start_x, start_y, end_x, end_y)
 else
   puts "Usage: #{$PROGRAM_NAME} filename start_x start_y end_x end_y\n"
   puts "Example: #{$PROGRAM_NAME} demo.maze 18 0 38 0\n"

@@ -1,10 +1,10 @@
 # encoding: UTF-8
 
-require 'maze/version'
+require 'maze_solver/version'
 
-module Maze
+module MazeSolver
 
-  class Maze
+  class MazeSolver
 
     def initialize(args = {})
       if args[:from_grid]

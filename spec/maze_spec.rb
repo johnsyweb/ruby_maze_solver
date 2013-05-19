@@ -2,12 +2,12 @@
 
 require 'spec_helper'
 
-describe Maze do
+describe MazeSolver do
   def given_a_simple_8_x_3_maze
-    @maze = Maze::Maze.new(from_grid: "********\n" +
-                           "        \n" +
-                           "********\n"
-                          )
+    @maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
+                                       "        \n" +
+                                       "********\n"
+                                      )
   end
 
   it 'should have a width of 8' do
@@ -59,7 +59,7 @@ describe Maze do
   end
 
   it 'should solve a bigger maze' do
-    maze = Maze::Maze.new(from_grid: "********\n" +
+    maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
                           "  **   *\n" +
                           "* ** * *\n" +
                           "* *  * *\n" +
@@ -71,7 +71,7 @@ describe Maze do
   end
 
   it 'should fail an impossible maze' do
-    maze = Maze::Maze.new(from_grid: "********\n" +
+    maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
                           "  **   *\n" +
                           "* **** *\n" +
                           "* *  * *\n" +
@@ -98,7 +98,7 @@ describe Maze do
   end
 
   it 'should be creatable from a file' do
-    maze = Maze::Maze.new(from_file: 'spec/test.maze')
+    maze = MazeSolver::MazeSolver.new(from_file: 'spec/test.maze')
     maze.solve(18, 0, 12, 6).should be_true
   end
 

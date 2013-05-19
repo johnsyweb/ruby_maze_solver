@@ -4,9 +4,11 @@ require 'spec_helper'
 
 describe MazeSolver do
   def given_a_simple_8_x_3_maze
-    @maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
-                                       "        \n" +
-                                       "********\n"
+    @maze = MazeSolver::MazeSolver.new(from_grid: <<-GRID
+********
+
+********
+GRID
                                       )
   end
 
@@ -59,42 +61,52 @@ describe MazeSolver do
   end
 
   it 'should solve a bigger maze' do
-    maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
-                          "  **   *\n" +
-                          "* ** * *\n" +
-                          "* *  * *\n" +
-                          "* ** * *\n" +
-                          "* **** *\n" +
-                          "*      *\n" +
-                          "********\n")
-    maze.solve(0, 1, 3, 3).should be_true
+    maze = MazeSolver::MazeSolver.new(from_grid: <<-GRID
+********
+  **   *
+* ** * *
+* *  * *
+* ** * *
+* **** *
+*      *
+********
+GRID
+                                     )
+                                     maze.solve(0, 1, 3, 3).should be_true
   end
 
   it 'should fail an impossible maze' do
-    maze = MazeSolver::MazeSolver.new(from_grid: "********\n" +
-                          "  **   *\n" +
-                          "* **** *\n" +
-                          "* *  * *\n" +
-                          "* ** * *\n" +
-                          "* **** *\n" +
-                          "*      *\n" +
-                          "********\n")
-    maze.solve(0, 1, 3, 3).should be_false
+    maze = MazeSolver::MazeSolver.new(from_grid: <<-GRID
+********
+  **   *
+* **** *
+* *  * *
+* ** * *
+* **** *
+*      *
+********
+GRID
+                                     )
+                                     maze.solve(0, 1, 3, 3).should be_false
   end
 
   it 'should be printable' do
     given_a_simple_8_x_3_maze
-    @maze.to_s.should eq "********\n" +
-      "        \n" +
-      '********'
+    @maze.to_s.should eq <<-GRID
+********
+        
+********
+GRID
   end
 
   it 'should be printable when solved' do
     given_a_simple_8_x_3_maze
     @maze.solve 0, 1, 7, 1
-    @maze.to_s.should eq "********\n" +
-      "........\n" +
-      '********'
+    @maze.to_s.should eq <<-GRID
+********
+........
+********
+GRID
   end
 
   it 'should be creatable from a file' do

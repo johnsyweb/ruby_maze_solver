@@ -12,6 +12,12 @@ module MazeSolver
       elsif args[:from_file]
         @grid = from_file(args[:from_file])
       end
+      pad_short_rows
+    end
+
+    def pad_short_rows
+      w = self.width
+      @grid.each { |row| row << ' ' * (w - row.length) if w > row.length }
     end
 
     def height
@@ -42,7 +48,7 @@ module MazeSolver
     def solve(start_x, start_y, end_x, end_y)
       return false unless visitable?(start_x, start_y)
 
-      visit start_x, start_y
+      visit(start_x, start_y)
 
       return true if [start_x, start_y] == [end_x, end_y]
 
@@ -61,7 +67,7 @@ module MazeSolver
     end
 
     def to_s
-      @grid.join("\n")
+      @grid.join("\n") << "\n"
     end
 
     def from_file(filename)

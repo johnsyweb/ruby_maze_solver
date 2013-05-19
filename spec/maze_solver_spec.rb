@@ -101,8 +101,22 @@ GRID
   end
 
   context 'from file' do
+    before do
+      test_maze = StringIO.new(<<-DOC
+****************** *
+*     *       **** *
+* ***** *****   ** *
+* ***** ******* ** *
+* *          ** ** *
+* ********** **    *
+************ *******
+DOC
+      )
+      File.stub(:open).with('test.maze', 'r').and_return(test_maze)
+    end
+
     it 'should be creatable' do
-      maze = MazeSolver::MazeSolver.new(from_file: 'spec/test.maze')
+      maze = MazeSolver::MazeSolver.new(from_file: 'test.maze')
       maze.solve(18, 0, 12, 6).should be_true
     end
   end

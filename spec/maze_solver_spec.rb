@@ -22,26 +22,26 @@ GRID
     end
 
     it 'should be possible to visit an empty space' do
-      @maze.visitable?(0, 1).should be_true
+      @maze.should be_visitable(0, 1)
     end
 
     it 'should not be possible to visit a wall' do
-      @maze.visitable?(0, 0).should be_false
+      @maze.should_not be_visitable(0, 0)
     end
 
     it 'should not be possible to visit outside the maze' do
-      @maze.visitable?(8, 3).should be_false
+      @maze.should_not be_visitable(8, 3)
     end
 
     it 'should not be possible to visit a visited space' do
-      @maze.visit 0, 1
-      @maze.visitable?(0, 1).should be_false
+      @maze.visit(0, 1)
+      @maze.should_not be_visitable(0, 1)
     end
 
     it 'should be possible to visit an unvisited space' do
-      @maze.visit 0, 1
-      @maze.unvisit 0, 1
-      @maze.visitable?(0, 1).should be_true
+      @maze.visit(0, 1)
+      @maze.unvisit(0, 1)
+      @maze.should be_visitable(0, 1)
     end
 
     it 'should be soluble' do
@@ -61,7 +61,7 @@ GRID
     end
 
     it 'should be printable when solved' do
-      @maze.solve 0, 1, 7, 1
+      @maze.solve(0, 1, 7, 1)
       @maze.to_s.should eq <<-GRID
 ********
 ........

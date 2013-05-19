@@ -13,13 +13,8 @@ GRID
       )
     end
 
-    it 'should have a width of 8' do
-      @maze.width.should eq 8
-    end
-
-    it 'should have a height of 3' do
-      @maze.height.should eq 3
-    end
+    specify { @maze.width.should eq 8 }
+    specify { @maze.height.should eq 3 }
 
     it 'should be possible to visit an empty space' do
       @maze.should be_visitable(0, 1)
@@ -111,6 +106,4 @@ GRID
       maze.solve(18, 0, 12, 6).should be_true
     end
   end
-
 end
-

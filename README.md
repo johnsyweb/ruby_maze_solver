@@ -2,7 +2,7 @@
 
 Written as an exercise in applying Ruby, this project solves mazes:
 
-    ./solver demo.maze 18 0 38 0
+    maze etc/demo.maze 18 0 38 0
     About to solve your 40x14 maze from (18, 0) to (38,0).
     GO!
     Solved!
@@ -24,21 +24,11 @@ Written as an exercise in applying Ruby, this project solves mazes:
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'maze'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install maze
 
 ## Usage
 
-    ./solver filename start_x start_y end_x end_y
+    maze filename start_x start_y end_x end_y
 
 ## Contributing
 
@@ -47,7 +37,6 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
 
 ## Thanks
 

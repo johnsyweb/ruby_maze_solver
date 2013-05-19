@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/johnsyweb/ruby_maze_solver.png)](https://travis-ci.org/johnsyweb/ruby_maze_solver)
-
-# Maze Solver
+# Maze Solver [![Build Status](https://travis-ci.org/johnsyweb/ruby_maze_solver.png)](https://travis-ci.org/johnsyweb/ruby_maze_solver)
 
 Written as an exercise in applying Ruby, this project solves mazes:
 
@@ -26,19 +24,23 @@ Written as an exercise in applying Ruby, this project solves mazes:
 
 ## Installation
 
+Maze Solver is available from
+[RubyGems.org](https://rubygems.org/gems/maze-solver). Installation is simply:
+
     $ gem install maze-solver
 
 ## Usage
 
-    maze-solver filename start_x start_y end_x end_y
+    $ maze-solver filename start_x start_y end_x end_y
 
 ## Contributing
 
 1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Create your feature branch (`git checkout -b my-new-feature`)
+1. Commit your changes (`git commit -am 'Add some feature'`)
+1. Push to the branch (`git push origin my-new-feature`)
+1. Ensure the tests pass for all Rubies in [`.travis.yml`](https://github.com/johnsyweb/ruby_maze_solver/blob/master/.travis.yml)
+1. Create new Pull Request
 
 ## Thanks
 

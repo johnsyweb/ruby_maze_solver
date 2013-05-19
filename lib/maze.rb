@@ -1,69 +1,73 @@
-require "maze/version"
+# encoding: UTF-8
+
+require 'maze/version'
 
 module Maze
 
   class Maze
 
-      def initialize(args={})
-          if args[:from_grid]
-              @grid = args[:from_grid].split("\n")
-          elsif args[:from_file]
-              @grid = from_file(args[:from_file])
-          end
+    def initialize(args = {})
+      if args[:from_grid]
+        @grid = args[:from_grid].split("\n")
+      elsif args[:from_file]
+        @grid = from_file(args[:from_file])
       end
+    end
 
-      def height
-          @grid.size
-      end
+    def height
+      @grid.size
+    end
 
-      def width
-          @grid.map { |row| row.length }.max
-      end
+    def width
+      @grid.map { |row| row.length }.max
+    end
 
-      def visitable?(x, y)
-          row, column = y, x
-          return false unless (0...height).include? row
-          return false unless (0...width).include? column
-          @grid[row][column].chr == " "
-      end
+    def visitable?(x, y)
+      row, column = y, x
+      return false unless (0...height).include? row
+      return false unless (0...width).include? column
+      @grid[row][column].chr == ' '
+    end
 
-      def visit(x, y)
-          row, column = y, x
-          @grid[row][column] = "."
-      end
+    def visit(x, y)
+      row, column = y, x
+      @grid[row][column] = '.'
+    end
 
-      def unvisit(x, y)
-          row, column = y, x
-          @grid[row][column] = " "
-      end
+    def unvisit(x, y)
+      row, column = y, x
+      @grid[row][column] = ' '
+    end
 
-      def solve(start_x, start_y, end_x, end_y)
-          return false unless visitable? start_x, start_y
+    def solve(start_x, start_y, end_x, end_y)
+      return false unless visitable?(start_x, start_y)
 
-          visit start_x, start_y
+      visit start_x, start_y
 
-          return true if start_x == end_x && start_y == end_y
+      return true if [start_x, start_y] == [end_x, end_y]
 
-          unless solve(start_x + 1, start_y, end_x, end_y) ||
-              solve(start_x, start_y + 1, end_x, end_y) ||
-              solve(start_x - 1, start_y, end_x, end_y) ||
-              solve(start_x, start_y - 1, end_x, end_y)
+      return true if adjacent_cell_solvable?(start_x, start_y, end_x, end_y)
 
-              unvisit start_x, start_y
-              return false
-          end
+      unvisit(start_x, start_y)
 
-          return true
-      end
+      false
+    end
 
-      def to_s
-          @grid.join("\n")
-      end
+    def adjacent_cell_solvable?(start_x, start_y, end_x, end_y)
+      solve(start_x + 1, start_y, end_x, end_y) ||
+        solve(start_x, start_y + 1, end_x, end_y) ||
+        solve(start_x - 1, start_y, end_x, end_y) ||
+        solve(start_x, start_y - 1, end_x, end_y)
+    end
 
-      def from_file(filename)
-          @grid = File.open(filename, "r").readlines
-          @grid.each { | row | row.strip! }
-      end
+    def to_s
+      @grid.join("\n")
+    end
+
+    def from_file(filename)
+      @grid = File.open(filename, 'r').readlines
+      @grid.each { | row | row.strip! }
+    end
 
   end
 

@@ -76,5 +76,4 @@ module MazeSolver
     end
 
   end
-
 end

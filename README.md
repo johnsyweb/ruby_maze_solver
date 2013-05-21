@@ -1,4 +1,4 @@
-# Maze Solver [![Build Status](https://travis-ci.org/johnsyweb/ruby_maze_solver.png)](https://travis-ci.org/johnsyweb/ruby_maze_solver)
+# Maze Solver [![Build Status](https://travis-ci.org/johnsyweb/ruby_maze_solver.png)](https://travis-ci.org/johnsyweb/ruby_maze_solver) [![Gem Version](https://badge.fury.io/rb/maze-solver.png)](http://badge.fury.io/rb/maze-solver)
 
 Written as an exercise in applying Ruby, this project solves mazes:
 

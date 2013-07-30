@@ -21,3 +21,9 @@ rescue LoadError
   warn 'cane not available, quality task not provided.'
 end
 
+begin
+  require 'churn'
+  task default: [:churn]
+rescue LoadError
+  warn 'churn not available, churn task not provided.'
+end

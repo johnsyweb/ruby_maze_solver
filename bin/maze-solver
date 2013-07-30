@@ -23,5 +23,5 @@ if ARGV.length == 5
   main(filename, start_x, start_y, end_x, end_y)
 else
   puts "Usage: #{$PROGRAM_NAME} filename start_x start_y end_x end_y\n"
-  puts "Example: #{$PROGRAM_NAME} demo.maze 18 0 38 0\n"
+  puts "Example: #{$PROGRAM_NAME} etc/demo.maze 18 0 38 0\n"
 end

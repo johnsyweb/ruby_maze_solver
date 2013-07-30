@@ -4,6 +4,7 @@ require 'maze_solver/version'
 
 module MazeSolver
 
+  # Maze solver: solves a maze
   class MazeSolver
 
     def initialize(args = {})

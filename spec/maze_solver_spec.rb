@@ -48,11 +48,9 @@ GRID
     end
 
     it 'should be printable' do
-      @maze.to_s.should eq <<-GRID
-********
-        
-********
-GRID
+      @maze.to_s.should eq "********\n" +
+        "        \n" +
+        "********\n"
     end
 
     it 'should be printable when solved' do

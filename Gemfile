@@ -10,3 +10,10 @@ gem 'coveralls', require: false
 gem 'json', '~> 1.7.7'
 gem 'rake'
 gem 'rspec'
+
+platforms :rbx do
+  gem 'racc'
+  gem 'iconv'
+  gem 'rubinius-coverage'
+  gem 'rubysl', '~> 2.0'
+end

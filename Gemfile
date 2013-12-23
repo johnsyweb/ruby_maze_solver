@@ -12,6 +12,8 @@ gem 'rake'
 gem 'rspec'
 
 platforms :rbx do
-  gem 'rubysl', '~> 2.0'
+  gem 'racc'
   gem 'iconv'
+  gem 'rubinius-coverage'
+  gem 'rubysl', '~> 2.0'
 end

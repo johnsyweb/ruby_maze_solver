@@ -3,47 +3,45 @@
 require 'maze_solver/version'
 
 module MazeSolver
-
   # Maze solver: solves a maze
   class MazeSolver
-
     def initialize(args = {})
-      if args[:from_grid]
-        @grid = args[:from_grid].split("\n")
-      elsif args[:from_file]
-        @grid = from_file(args[:from_file])
-      end
+      @grid = if args[:from_grid]
+                args[:from_grid].split("\n")
+              elsif args[:from_file]
+                from_file(args[:from_file])
+              end
       pad_short_rows
     end
 
     def pad_short_rows
-      w = self.width
-      @grid.each { |row| row << ' ' * (w - row.length) if w > row.length }
+      w = width
+      grid.each { |row| row << ' ' * (w - row.length) if w > row.length }
     end
 
     def height
-      @grid.size
+      grid.size
     end
 
     def width
-      @grid.map { |row| row.length }.max
+      grid.map { |row| row.length }.max
     end
 
     def visitable?(x, y)
       row, column = y, x
       return false unless (0...height).include? row
       return false unless (0...width).include? column
-      @grid[row][column].chr == ' '
+      grid[row][column].chr == ' '
     end
 
     def visit(x, y)
       row, column = y, x
-      @grid[row][column] = '.'
+      grid[row][column] = '.'
     end
 
     def unvisit(x, y)
       row, column = y, x
-      @grid[row][column] = ' '
+      grid[row][column] = ' '
     end
 
     def solve(start_x, start_y, end_x, end_y)
@@ -68,13 +66,16 @@ module MazeSolver
     end
 
     def to_s
-      @grid.join("\n") << "\n"
+      grid.join("\n") << "\n"
     end
 
     def from_file(filename)
-      @grid = File.open(filename, 'r').readlines
-      @grid.each { | row | row.strip! }
+      grid = File.open(filename, 'r').readlines
+      grid.each { | row | row.strip! }
     end
 
+    private
+
+    attr_accessor :grid
   end
 end

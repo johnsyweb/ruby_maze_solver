@@ -13,4 +13,5 @@ gem 'rspec'
 
 platforms :rbx do
   gem 'rubysl', '~> 2.0'
+  gem 'iconv'
 end

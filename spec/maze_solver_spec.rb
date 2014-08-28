@@ -13,8 +13,8 @@ GRID
 
     subject(:maze) { described_class.new(from_grid: grid) }
 
-    its(:width) { should eq 8 }
-    its(:height) { should eq 3 }
+    its(:width) { should be 8 }
+    its(:height) { should be 3 }
 
     it 'is possible to visit an empty space' do
       expect(maze).to be_visitable(0, 1)
@@ -40,16 +40,16 @@ GRID
     end
 
     it 'is soluble' do
-      expect(maze.solve(0, 1, 7, 1)).to be_true
+      expect(maze.solve(0, 1, 7, 1)).to be true
     end
 
     it 'is soluble backwards' do
-      expect(maze.solve(7, 1, 0, 1)).to be_true
+      expect(maze.solve(7, 1, 0, 1)).to be true
     end
 
     it 'is printable' do
-      expect(maze.to_s).to eq "********\n" +
-        "        \n" +
+      expect(maze.to_s).to eq "********\n" \
+        "        \n" \
         "********\n"
     end
 
@@ -80,7 +80,7 @@ GRID
     subject(:maze) { described_class.new(from_grid: grid) }
 
     it 'is soluble' do
-      expect(maze.solve(0, 1, 3, 3)).to be_true
+      expect(maze.solve(0, 1, 3, 3)).to be true
     end
   end
 
@@ -101,7 +101,7 @@ GRID
     subject(:maze) { described_class.new(from_grid: grid) }
 
     it 'is insoluble' do
-      expect(maze.solve(0, 1, 3, 3)).to be_false
+      expect(maze.solve(0, 1, 3, 3)).to be false
     end
   end
 
@@ -119,11 +119,13 @@ GRID
                   )
     end
 
-    before { File.stub(:open).with('test.maze', 'r').and_return(test_maze) }
+    before do
+      expect(File).to receive(:open).with('test.maze', 'r').and_return(test_maze)
+    end
 
     it 'is creatable' do
       maze = MazeSolver::MazeSolver.new(from_file: 'test.maze')
-      expect(maze.solve(18, 0, 12, 6)).to be_true
+      expect(maze.solve(18, 0, 12, 6)).to be true
     end
   end
 end

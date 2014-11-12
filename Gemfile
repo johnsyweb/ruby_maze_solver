@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'cane', '~> 2.6.0', require: false
-gem 'churn', '~> 0.0.29', require: false
+gem 'cane', require: false
+gem 'churn', require: false
 gem 'coveralls', require: false
-gem 'json', '~> 1.7.7'
+gem 'json'
 gem 'rake'
 gem 'rspec'
 gem 'rspec-its'
@@ -16,5 +16,5 @@ platforms :rbx do
   gem 'racc'
   gem 'iconv'
   gem 'rubinius-coverage'
-  gem 'rubysl', '~> 2.0'
+  gem 'rubysl'
 end

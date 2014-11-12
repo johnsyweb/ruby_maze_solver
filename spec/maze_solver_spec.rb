@@ -4,7 +4,8 @@ require 'spec_helper'
 
 describe MazeSolver::MazeSolver do
   context 'a simple 8 x 3 maze' do
-    let(:grid) do <<-GRID
+    let(:grid) do
+      <<-GRID
 ********
 
 ********

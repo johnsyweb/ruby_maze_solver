@@ -7,7 +7,7 @@ require 'maze_solver'
 
 def main(filename, start_x, start_y, end_x, end_y)
   maze = MazeSolver::MazeSolver.new(from_file: filename)
-  puts "About to solve your #{maze.width}x#{maze.height} maze from " +
+  puts "About to solve your #{maze.width}x#{maze.height} maze from " \
     "(#{start_x}, #{start_y}) to (#{end_x},#{end_y})."
   puts 'GO!'
   if maze.solve start_x.to_i, start_y.to_i, end_x.to_i, end_y.to_i

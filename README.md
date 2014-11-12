@@ -7,7 +7,7 @@
 
 Written as an exercise in applying Ruby, this project solves mazes:
 
-    maze-solver etc/demo.maze 18 0 38 0
+    maze_solver etc/demo.maze 18 0 38 0
     About to solve your 40x14 maze from (18, 0) to (38,0).
     GO!
     Solved!
@@ -36,7 +36,7 @@ Maze Solver is available from
 
 ## Usage
 
-    $ maze-solver filename start_x start_y end_x end_y
+    $ maze_solver filename start_x start_y end_x end_y
 
 ## Contributing
 

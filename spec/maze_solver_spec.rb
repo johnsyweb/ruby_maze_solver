@@ -121,7 +121,10 @@ GRID
     end
 
     before do
-      expect(File).to receive(:open).with('test.maze', 'r').and_return(test_maze)
+      expect(File)
+        .to receive(:open)
+        .with('test.maze', 'r')
+        .and_return(test_maze)
     end
 
     it 'is creatable' do

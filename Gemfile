@@ -11,6 +11,7 @@ gem 'json'
 gem 'rake'
 gem 'rspec'
 gem 'rspec-its'
+gem 'rubocop'
 
 platforms :rbx do
   gem 'racc'

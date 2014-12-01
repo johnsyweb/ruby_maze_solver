@@ -24,7 +24,7 @@ module MazeSolver
     end
 
     def width
-      grid.map { |row| row.length }.max
+      grid.map(&:length).max
     end
 
     def visitable?(x, y)
@@ -71,7 +71,7 @@ module MazeSolver
 
     def from_file(filename)
       grid = File.open(filename, 'r').readlines
-      grid.each { | row | row.strip! }
+      grid.each(&:strip!)
     end
 
     private

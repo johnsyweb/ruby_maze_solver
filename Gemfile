@@ -12,10 +12,3 @@ gem 'rake'
 gem 'rspec'
 gem 'rspec-its'
 gem 'rubocop'
-
-platforms :rbx do
-  gem 'racc'
-  gem 'iconv'
-  gem 'rubinius-coverage'
-  gem 'rubysl'
-end

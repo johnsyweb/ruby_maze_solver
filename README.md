@@ -34,6 +34,8 @@ Maze Solver is available from
 
     $ gem install maze-solver
 
+[RubyGems.org gem replacement vulnerability and mitigation](http://blog.rubygems.org/2016/04/06/gem-replacement-vulnerability-and-mitigation.html): not affected.
+
 ## Usage
 
     $ maze_solver filename start_x start_y end_x end_y

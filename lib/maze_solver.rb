@@ -28,19 +28,22 @@ module MazeSolver
     end
 
     def visitable?(x, y)
-      row, column = y, x
-      return false unless (0...height).include? row
-      return false unless (0...width).include? column
+      row = y
+      column = x
+      return false unless (0...height).cover? row
+      return false unless (0...width).cover? column
       grid[row][column].chr == ' '
     end
 
     def visit(x, y)
-      row, column = y, x
+      row = y
+      column = x
       grid[row][column] = '.'
     end
 
     def unvisit(x, y)
-      row, column = y, x
+      row = y
+      column = x
       grid[row][column] = ' '
     end
 
